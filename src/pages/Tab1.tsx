@@ -1,23 +1,44 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Tab1.css';
+import {
+  IonButton,
+  IonCol,
+  IonContent,
+  IonFab,
+  IonFabButton,
+  IonHeader,
+  IonIcon,
+  IonPage,
+  IonRow,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import { camera, personCircle } from "ionicons/icons";
+import React from "react";
+import getTwitchUrl from "util/getTwitchUrl";
+import ExploreContainer from "../components/ExploreContainer";
+import "./Tab1.css";
 
 const Tab1: React.FC = () => {
+  const url = getTwitchUrl();
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
+          <IonTitle>Login</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
-      </IonContent>
+      <IonRow>
+        <IonButton href={url}>Anchor</IonButton>
+        <IonCol>
+          <IonIcon style={{ fontSize: "70px", color: "#0040ff" }} icon={personCircle} />
+        </IonCol>
+        <IonCol>
+          <IonFab horizontal="center">
+            <IonFabButton onClick={() => {}}>
+              <IonIcon icon={camera}>ss</IonIcon>
+            </IonFabButton>
+          </IonFab>
+        </IonCol>
+      </IonRow>
     </IonPage>
   );
 };
