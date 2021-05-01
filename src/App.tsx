@@ -22,7 +22,7 @@ import "@ionic/react/css/text-alignment.css";
 import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/typography.css";
 import { exitOutline, triangle } from "ionicons/icons";
-import Login from "pages/Login";
+import Login from "features/login";
 import { Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 /* Theme variables */

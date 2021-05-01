@@ -1,25 +1,25 @@
-import React, { useEffect } from "react";
 import {
+  IonButton,
+  IonCol,
   IonContent,
+  IonGrid,
   IonHeader,
+  IonIcon,
+  IonInput,
+  IonItem,
+  IonLabel,
   IonPage,
+  IonRow,
   IonTitle,
   IonToolbar,
-  IonButton,
-  useIonRouter,
-  IonIcon,
 } from "@ionic/react";
-import { IonItem, IonLabel, IonInput, IonAlert, IonGrid, IonRow, IonCol } from "@ionic/react";
-
-import getTwitchUrl from "util/getTwitchUrl";
-import { logoTwitch, personCircle } from "ionicons/icons";
-import styles from "./Login.module.css";
+import { personCircle } from "ionicons/icons";
+import React from "react";
+import SocialLogin, { Social } from "./SocialLogin";
 
 interface LoginProps {}
 
 const Login: React.FC<LoginProps> = () => {
-  const url = getTwitchUrl();
-
   return (
     <IonPage>
       <IonHeader>
@@ -67,11 +67,8 @@ const Login: React.FC<LoginProps> = () => {
           <IonRow>
             <IonCol>
               <p style={{ fontSize: "small" }}>or</p>
-              <IonButton href={url} shape="round" size="default" className={styles.twitchIcon}>
-                {" "}
-                <IonIcon icon={logoTwitch} />
-                Login with Twitch.tv
-              </IonButton>
+
+              <SocialLogin socials={[Social.discord, Social.twitch]} />
             </IonCol>
           </IonRow>
         </IonGrid>
